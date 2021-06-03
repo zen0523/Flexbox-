@@ -15,91 +15,110 @@
         <div class="menu">
             <img src="images/logo-all-dark.svg" alt="" class="logo">
             <ul class="items">
-                <li class="item">首頁</li>
-                <li class="item">甜點</li>
-                <li class="item">登入</li>
-                <li class="item cart"><img src="images/shopping_cart.png" alt=""></li>
+                <!-- ul.items 內的選單，一般點選後都可開啟對應頁面，可加上 a 標籤 -->
+                <li class="item"><a href="#">首頁</a></li>
+                <li class="item"><a href="#">甜點</a></li>
+                <li class="item"><a href="#">登入</a></li>
+                <li class="item"><a href="#"><img src="images/shopping_cart.png" alt=""></a></li>
             </ul>
         </div>
-        <div class="banner"><img src="images/banner.png" alt=""></div>
+        <!-- .banner 設定可移至子層 img 上，使結構更簡潔 -->
+        <img class="banner" src="images/banner.png" alt="banner">
         <div class="content">
-            <ul class="list_menu">
-                <li class="list_item title">甜點類別</li>
-                <li class="list_item selected">所有甜點 (48)</li>
-                <li class="list_item">本日精選 (10)</li>
-                <li class="list_item">人氣推薦 (26)</li>
-                <li class="list_item">新品上市 (12)</li>
-            </ul>
+            <!-- 甜點類別為標題可使用 h2 標籤，並移出 ul > li 結構 -->
+            <div class="list_items">
+                <h2 class="list_item title">甜點類別</h2>
+                <!-- .list_menu 內的 「 所有甜點 ~ 新品上市 」點選後會開啟對應項目 -->
+                <!-- 可使用 a 標籤並搭配 :hover 增加使用者體驗。 -->
+                <ul class="list_menu">
+                    <a href="#">
+                        <li class="list_item selected">所有甜點 (48)</li>
+                    </a>
+                    <a href="#">
+                        <li class="list_item">本日精選 (10)</li>
+                    </a>
+                    <a href="#">
+                        <li class="list_item">人氣推薦 (26)</li>
+                    </a>
+                    <a href="#">
+                        <li class="list_item">新品上市 (12)</li>
+                    </a>
+                </ul>
+            </div>
             <ul class="products_menu">
                 <li class="product">
                     <div class="favorite"></div>
-                    <div><img src="images/p-1.png" alt=""></div>
+                    <!-- 商品圖片外層不須使用 div 包覆 -->
+                    <img src="images/p-1.png" alt="焦糖馬卡龍">
                     <div class="details">
                         <div class="product_name">焦糖馬卡龍</div>
                         <div class="product_price">NT$ 450</div>
                     </div>
-                    <div class="added_cart">加入購物車</div>
+                    <!-- 加入購物車可使用 a 標籤，a 連結可加入 display:block; 變區塊元素增加點擊範圍 -->
+                    <div class="added_cart"><a href="#">加入購物車</a></div>
                 </li>
                 <li class="product">
                     <div class="favorite"></div>
-                    <div><img src="images/p-2.png" alt=""></div>
+                    <img src="images/p-2.png" alt="焦糖馬卡龍">
                     <div class="details">
                         <div class="product_name">焦糖馬卡龍</div>
                         <div class="product_price">NT$ 450</div>
                     </div>
-                    <div class="added_cart">加入購物車</div>
+                    <div class="added_cart"><a href="#">加入購物車</a></div>
                 </li>
                 <li class="product">
                     <div class="favorite"></div>
-                    <div><img src="images/p-3.png" alt=""></div>
+                    <img src="images/p-3.png" alt="焦糖馬卡龍">
                     <div class="details">
                         <div class="product_name">焦糖馬卡龍</div>
                         <div class="product_price">NT$ 450</div>
                     </div>
-                    <div class="added_cart">加入購物車</div>
+                    <div class="added_cart"><a href="#">加入購物車</a></div>
                 </li>
                 <li class="product">
                     <div class="favorite"></div>
-                    <div><img src="images/p-4.png" alt=""></div>
+                    <img src="images/p-4.png" alt="焦糖馬卡龍">
                     <div class="details">
                         <div class="product_name">焦糖馬卡龍</div>
                         <div class="product_price">NT$ 450</div>
                     </div>
-                    <div class="added_cart">加入購物車</div>
+                    <div class="added_cart"><a href="#">加入購物車</a></div>
                 </li>
                 <li class="product">
                     <div class="favorite"></div>
-                    <div><img src="images/p-5.png" alt=""></div>
+                    <img src="images/p-5.png" alt="焦糖馬卡龍">
                     <div class="details">
                         <div class="product_name">焦糖馬卡龍</div>
                         <div class="product_price">NT$ 450</div>
                     </div>
-                    <div class="added_cart">加入購物車</div>
+                    <div class="added_cart"><a href="#">加入購物車</a></div>
                 </li>
                 <li class="product">
                     <div class="favorite"></div>
-                    <div><img src="images/p-6.png" alt=""></div>
+                    <img src="images/p-6.png" alt="焦糖馬卡龍">
                     <div class="details">
                         <div class="product_name">焦糖馬卡龍</div>
                         <div class="product_price">NT$ 450</div>
                     </div>
-                    <div class="added_cart">加入購物車</div>
+                    <div class="added_cart"><a href="#">加入購物車</a></div>
                 </li>
             </ul>
         </div>
-        <div class="pages">
-            <ul>
-                <li class="page_item">
-                    <img src="images/arrow_left.png" alt="">
-                </li>
-                <li class="page_item selected">1</li>
-                <li class="page_item">2</li>
-                <li class="page_item">3</li>
-                <li class="page_item">
-                    <img src="images/arrow_right.png" alt="">
-                </li>
-            </ul>
-        </div>
+        <!-- .pages 可移至子層 ul 上，使結構更簡潔。 -->
+        <ul class="pages">
+            <!-- 頁碼的部分點選後會開啟對應頁面，也可加上 a 連結 -->
+            <li class="page_item">
+                <a href="#"><img src="images/arrow_left.png" alt="Previous"></a>
+            </li>
+            <li class="page_item selected"><a href="#">1</a></li>
+            <li class="page_item"><a href="#">2</a></li>
+            <li class="page_item"><a href="#">3</a></li>
+            <li class="page_item">
+                <a href="">
+                    <img src="images/arrow_right.png" alt="Next">
+                </a>
+            </li>
+        </ul>
     </div>
 </body>
 

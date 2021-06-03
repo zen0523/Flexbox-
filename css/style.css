@@ -1,34 +1,43 @@
-html,
+/* 子層會繼承父層設定 ，可嘗試把 box-sizing 都統一寫在 *,*:before,*:after 上 */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 body {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* margin: 0; */
-    padding-top: 200px;
-    padding-bottom: 200px;
-    background-color: #fafafa;
+    /* background-color: #fafafa; */
+    /*body 的設定可以都刪除，留 background-color*/
+    font-family: "PingFang TC";
+    /* 另外因為子層會繼承父層設定， font-family 也可以統一設定在 body*/
 }
 
 .container {
-    width: 1024px;
+    width: 940px;
+    /*設計稿中 1024px 只是方便設計師觀看滿版時的設計，所以 .container 寬度可設 940px就好喔 !*/
     background-color: #fff;
+    /*如果要使區塊水平置中，可於 .container 設定寬度後搭配 margin:0 auto;*/
+    margin: 0 auto;
+    padding: 30px 42px 60px 42px;
+    box-sizing: content-box;
 }
 
+/* 子層會繼承父層設定，.menu、.banner 寬度可刪除 */
+/*.menu 不建議寫死高度，可使用 padding 去推擠出空間 */
 .menu {
     display: flex;
-    width: 940px;
-    height: 42px;
-    /* padding: 30px 42px 30px 42px; */
     justify-content: space-between;
     margin: 30px auto 30px auto;
 }
 
+/* logo 圖片可賦予寬度 */
+.menu .logo {
+    width: 220px;
+}
+
+/* ul.items 不建議寫死寬度，這樣日後內容增加就不需再另外調整 */
 ul.items {
-    width: 400px;
     display: flex;
-    /* justify-content: space-around; */
     align-items: center;
 }
 
@@ -36,55 +45,59 @@ ul.items li.item {
     display: block;
     width: 100px;
     text-align: center;
-    /* font-size: 16px; */
-    font: normal normal 600 16px/73px PingFang TC;
+}
+
+ul.items li.item a {
     color: #3F5D45;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-ul.items li.item.cart {
-    display: block;
-    text-align: right;
-    padding-top: 12px;
-    /* width: 24px; */
-}
-
+/* 子層會繼承父層設定，.menu、.banner 寬度可刪除 */
 .banner {
-    width: 940px;
-    margin: 0 auto;
+    margin: 0 auto 60px auto;
 }
 
 .content {
-    margin: 60px auto 0px auto;
-    width: 940px;
     display: flex;
-    /* align-items: center; */
-    /* justify-content: space-between; */
+    /* .content 可刪除寬度，而 margin 的部份也可使用 justify-content: space-between; 取代 */
+    justify-content: space-between;
+    font-size: 24px;
+    line-height: 40px;
+    font-weight: 600;
+}
+
+.list_items {
+    width: 300px;
+}
+
+.title {
+    color: #EAF0ED;
+    background-color: #3f5d45;
 }
 
 ul.list_menu {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    font: normal normal 600 24px/40px PingFang TC;
     color: #3F5D45;
     width: 300px;
 }
 
-ul.list_menu li {
-    display: block;
+ul.list_menu a {
+    text-decoration: none;
+    color: #3f5d45;
+}
+
+.list_item {
     height: 65px;
     text-align: center;
     border: 1px solid #EAF0ED;
-    box-sizing: border-box;
     line-height: 65px;
 }
 
-ul.list_menu li.title {
-    color: #EAF0ED;
-    background-color: #3f5d45;
-}
-
-ul.list_menu li.selected {
+.selected {
     background-color: #EAF0ED;
 }
 
@@ -92,16 +105,12 @@ ul.products_menu {
     display: flex;
     margin-left: 20px;
     flex-wrap: wrap;
-    width: 620px;
     justify-content: space-between;
-    font: normal normal 300 20px/20px PingFang TC;
     text-align: center;
-    box-sizing: border-box;
 }
 
 ul.products_menu li {
-    box-sizing: border-box;
-    width: 300px;
+    /* width: 300px; */
     margin-bottom: 20px;
 }
 
@@ -109,97 +118,97 @@ ul.products_menu li.product {
     position: relative;
 }
 
+/* 本日精選不建議寫死高度，可使用 padding 去推擠出空間，日後如果要新增內容就不需另外調整，使用上會比較有彈性喔 ! */
 ul.products_menu li.product::before {
     content: "本日精選";
     display: block;
-    writing-mode: vertical-rl;
     position: absolute;
-    text-align: left;
-    font: normal normal 600 16px/20px PingFang TC;
     color: #EAF0ED;
     background-color: #3F5D45;
     width: 36px;
-    height: 107px;
-    text-align: center;
-    line-height: 38px;
-    letter-spacing: 4px;
-    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 20px;
     margin-left: 20px;
+    padding: 10px;
 }
 
+/* favorite icon 的 margin 可刪除，可嘗試 top、left、bottom、right 去調整位置 */
 ul.products_menu li.product .favorite {
     width: 20px;
     height: 20px;
-    display: inline-block;
     position: absolute;
-    box-sizing: border-box;
-    background: transparent url(../images/favorite_border.png) 0% 0% no-repeat padding-box;
-    margin-right: 22px;
-    margin-top: 19px;
-    right:0;
+    background: transparent url(../images/favorite_border.png);
+    top: 19px;
+    right: 22px;
 }
 
-ul.products_menu li img {
-    box-sizing: border-box;
-    margin: 0;
-}
-
-ul.products_menu .details {
+.product {
     display: flex;
-    width: 300px;
-    margin-top: -4px;
+    flex-direction: column;
 }
 
-ul.products_menu .product_name {
+/* 子層會繼承父層設定，.details 寬度可刪除 */
+.details {
+    display: flex;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+/* 商品名稱與商品價錢 product_name、 product_price，不建議寫死高度，可使用 padding 去推擠出空間，日後如果要新增內容就不需另外調整，使用上會比較有彈性喔 ! */
+.product_name {
     width: 173px;
-    height: 56px;
     border: 1px solid #EAF0ED;
-    box-sizing: border-box;
     line-height: 56px;
 }
 
-ul.products_menu .product_price {
+.product_price {
     width: 127px;
-    height: 56px;
-    display: block;
     border: 1px solid #EAF0ED;
-    box-sizing: border-box;
     line-height: 56px;
 }
 
 ul.products_menu .added_cart {
-    height: 65px;
     border: 1px solid #EAF0ED;
     background-color: #EAF0ED;
-    font: normal normal 600 24px/20px PingFang TC;
     color: #3F5D45;
+    font-weight: 600;
+    font-size: 24px;
     line-height: 65px;
-    box-sizing: border-box;
 }
 
-.pages{
-    margin: 10px 0px 60px 0px;
+ul.products_menu .added_cart a {
+    display: block;
+    color: #3F5D45;
+    text-decoration: none;
 }
 
-.pages ul{
+/* .pages ul 的 width 與 margin 沒用到可刪除 */
+.pages {
+    margin: 10px 0px 0px 0px;
     display: flex;
     justify-content: flex-end;
-    margin: 0 auto;
-    width: 940px;
 }
 
-.pages ul li{
+.page_item {
     width: 60px;
     height: 60px;
     border: 1px solid #EAF0ED;
-    box-sizing: border-box;
     text-align: center;
-    padding: 20px;
-    font: normal normal 300 20px/20px PingFang TC;
-    color: #3F5D45;
 }
 
-.pages ul li.selected{
-    background: #3F5D45 0% 0% no-repeat padding-box;
+.pages li a {
+    text-decoration: none;
+    color: #3F5D45;
+    font-size: 20px;
+    display: block;
+    line-height: 60px;
+}
+
+.pages .selected a {
+    background: #3F5D45;
     color: #EAF0ED;
+}
+
+.page_item img {
+    padding: 20px;
 }
